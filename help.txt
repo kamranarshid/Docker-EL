@@ -1,0 +1,27 @@
+download
+elasticsearch-7.10.2-linux-x86_64.tar.gz
+logstash-7.9.0.tar.gz
+
+after that
+
+ss -ntpl
+
+docker build -t elk:v1.1 .
+docker images
+docker rmi ea256f89bdce c35d233af452
+docker ps
+docker ps -a
+
+iptables -t nat --list
+docker run -d --rm --name=elk  -p9200:9200 elk:v1.1 // expose port
+ps -ef | grep elastic
+rpm -e elasticsearch-7.10.2-1.x86_64
+ping host.docker.internal
+
+docker exec -u root -it elk /bin/bash
+
+Use this is apt not allow vi
+-----------------------------   
+apt-get update && apt-get install apt-file -y && apt-file update && apt-get install vim -y
+
+docker inspect imageid
