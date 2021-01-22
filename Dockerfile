@@ -6,6 +6,9 @@ ADD logstash.tar.gz /opt/
 
 RUN useradd -ms /bin/bash elastic
 
+RUN apt-get update && \
+    apt-get install vim -y
+
 RUN chown -R elastic:elastic /opt/
 
 ADD indexes.tar.gz /opt/
@@ -17,10 +20,6 @@ COPY start.sh /opt/start.sh
 RUN chmod +x /opt/start.sh
 
 USER elastic
-
-#USER root
-
-#RUN sudo apt-get update
 
 ENTRYPOINT ["/opt/start.sh"]
 
